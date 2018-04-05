@@ -1,0 +1,70 @@
+!!! 5
+
+%html
+	%head
+		%title 3W
+		= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+		= javascript_include_tag 'application', 'data-turbolinks-track' => true
+		= csrf_meta_tags
+		%link{:crossorigin => "anonymous", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", :integrity => "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm", :rel => "stylesheet"}/
+		%link{:href => "http://fonts.googleapis.com/css?family=Lato:300,400,700", :rel => "stylesheet", :type => "text/css"}/
+		%link{:href => "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css", :rel => "stylesheet"}/
+		%meta{:content => "initial-scale = 1.0,maximum-scale = 1.0", :name => "viewport"}/
+
+
+%body
+	%nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-dark
+		%a.navbar-brand{:href => "#"} 
+			%img.d-inline-block.align-middle{:alt => "", :src => "/assets/dx_header_logo.png"}/
+
+		#navbarSupportedContent.collapse.navbar-collapse
+			%ul.navbar-nav.mr-auto
+				%li.nav-item.active
+					%a.nav-link{:href => "#"}
+						Home
+						%span.sr-only (current)
+				%li.nav-item
+					%a.nav-link{:href => posts_path} Product
+				%li.nav.dropdown
+					%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+						About
+					%ul.dropdown-menu
+						%li
+							=link_to "Our Story", root_path
+						%li
+							=link_to "Our Team", root_path	
+
+
+			%form.form-inline.my-2.my-lg-0
+				%input.form-control.mr-sm-2{"aria-label" => "Signup", :placeholder => "Enter Your Email", :type => "search"}/
+				%button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit"} Get Involved
+		
+
+	- flash.each do |key, value|
+		%div{:class => "alert alert-#{key}"}
+			= value
+	= yield
+
+/ %nav.navbar.navbar-default.navbar-fixed-bottom
+/ 	.container
+/ 		.navbar-header
+/ 			%button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+/ 				%span.sr-only Toggle navigation
+/ 				%span.icon-bar
+/ 				%span.icon-bar
+/ 				%span.icon-bar
+/ 		#bs-example-navbar-collapse-1.collapse.navbar-collapse
+/ 			%ul.nav.navbar-nav
+/ 				%li
+/ 					= link_to "Twitter", "http://www.twitter.com/fitchike", :target => "_blank" 
+/ 					%span.sr-only (current)
+/ 				%li
+/ 					= link_to "Facebook", "http://www.facebook.com/fitchike", :target => "_blank" 
+/ 				%li
+/ 					= link_to "Instagram", "http://www.instagram.com/fitchike", :target => "_blank" 
+
+/ 				%li
+/ 					= mail_to "admin@fitchike.com", "Contact", subject: "Fitchike Contact Request"
+
+/ 			%p.navbar-text.navbar-right
+/ 				&copy; DxOrders 2018     

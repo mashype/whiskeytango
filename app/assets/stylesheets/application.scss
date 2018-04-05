@@ -1,0 +1,78 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "global.scss";
+@import "normalize.scss";
+@import "welcome.scss";
+@import "posts.scss";
+
+$dxo_dark: #852B61;
+$dxo_light: #D158A0;
+$dxo_gray: #444444;
+
+$pcpink: #E6007C;
+$pcdark: #191718;
+$pcyellow: #99880B;
+$white: #ffffff;
+
+
+@mixin box-shadow {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+}
+
+@mixin bold_font {
+	font-family: "Brandon Grotesque","Helvetica Neue", Helvetica, sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+* {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	background: #444444;
+	padding-top: 50px;
+	font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 100;
+	color: $dxo_dark;
+
+	text-align: center;
+}
+
+.navbar {
+	margin-bottom: 0px;
+	@include box-shadow;
+	border: none;
+	.navbar-brand {
+		text-transform: uppercase;
+		color: $pcpink;
+		position: relative;
+  	top: 50%;
+  	transform: translateY(-20%);
+		a {
+			color: $pcpink;
+		}
+	}
+}
